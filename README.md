@@ -1,0 +1,2 @@
+ This project is designed to reinforce understanding of virtualization, multi-machine environments, network configurations, file syncing, local web server deployment, and snapshot management. 
+ By simulating a mini-local server setup using Ubuntu & CentOS boxes, knowledge of Vagrant, Git Bash, VirtualBox, and the Vagrantfile will be applied to create a reproducible, controlled development environment
