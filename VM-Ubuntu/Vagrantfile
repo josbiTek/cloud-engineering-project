@@ -1,0 +1,23 @@
+Vagrant.configure("2") do |config|
+    config.vm.box = "ubuntu/focal64"
+
+    config.vm.define "project" do |project|
+      project.vm.synced_folder "content/", "/var/www/html",
+         create: true, group: "vagrant", owner: "vagrant", id: "project"
+      project.vm.network "forwarded_port", guest: 8080, host: 8081,
+        auto_correct: true, id: "html-content"
+      project.vm.hostname = "Joe"
+      project.vm.network "private_network", type: "static", ip: "192.168.200.10"
+      project.vm.network "public_network"
+    end
+                                
+    config.vm.define "project1" do |project1|
+      project1.vm.synced_folder "content/", "/var/www/html"
+      project1.vm.network "forwarded_port", guest: 9090, host: 9091,
+        auto_correct: true, id: "html-content1"
+      project1.vm.hostname = "Joe1"
+      project1.vm.network "private_network", type: "static", ip: "192.168.200.12"
+      project1.vm.network "public_network"
+    end
+
+end     
